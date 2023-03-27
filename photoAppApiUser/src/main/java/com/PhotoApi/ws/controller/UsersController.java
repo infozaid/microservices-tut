@@ -42,8 +42,8 @@ public class UsersController {
 				returnResponse.setMessage(HttpStatus.CREATED.series().name()+" "+HttpStatus.CREATED.getReasonPhrase()+" "+HttpStatus.CREATED.value());
 				response=  ResponseEntity.status(HttpStatus.CREATED).body(returnResponse);
 			}else{
-				response=  ResponseEntity.status(HttpStatus.BAD_REQUEST).body(userDto.getMessage());
 				returnResponse.setMessage(HttpStatus.BAD_REQUEST.series().name()+" "+HttpStatus.BAD_REQUEST.getReasonPhrase()+" "+HttpStatus.BAD_REQUEST.value());
+				response=  ResponseEntity.status(HttpStatus.BAD_REQUEST).body(returnResponse.getMessage()+"\n"+userDto.getMessage());
 			}
 
 		}catch (Exception e){
